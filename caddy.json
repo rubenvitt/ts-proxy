@@ -48,7 +48,7 @@
       "automation": {
         "policies": [
           {
-            "subjects": ["rubeen"],
+            "subjects": ["*.rubeen"],
             "issuers": [{
               "module": "internal",
               "ca": "Rubeen"
