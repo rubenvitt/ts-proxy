@@ -10,8 +10,6 @@ services:
     command: caddy run --config /etc/caddy/caddy.json
     volumes:
       - ./caddy.json:/etc/caddy/caddy.json
-      - caddy_data:/data
-      - caddy_config:/config
       - /certs:/etc/caddy/certs:ro
 
   dnsmasq:
