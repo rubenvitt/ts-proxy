@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+#  caddy:
+#    image: caddy:2-alpine
+#    restart: unless-stopped
+#    ports:
+#      - "80:80"
+#      - "443:443"
+#    volumes:
+#      - ./Caddyfile:/etc/caddy/Caddyfile
+#      - caddy_data:/data
+#      - caddy_config:/config
+#      - /certs:/etc/caddy/certs:ro
+
+  dnsmasq:
+    image: jpillora/dnsmasq
+    platform: linux/amd64
+    ports:
+      - "9053:53/tcp"
+      - "9053:53/udp"
+    volumes:
+      - ./dnsmasq.conf:/etc/dnsmasq.conf
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:
