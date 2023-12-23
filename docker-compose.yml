@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
-      - "443:3000"
+      - "443:443"
     command: caddy run --config /etc/caddy/caddy.json
     volumes:
       - ./caddy.json:/etc/caddy/caddy.json
