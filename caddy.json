@@ -35,12 +35,7 @@
           "root_common_name": "Rubeen (root)",
           "intermediate_common_name": "Rubeen (intermediate)",
           "intermediate_lifetime": "10d",
-          "install_trust": false,
-          "root": {
-            "certificate": "/etc/caddy/certs/root_cert.pem",
-            "private_key": "/etc/caddy/certs/root_key.pem",
-            "format": "pem_file"
-          }
+          "install_trust": false
         }
       }
     },
@@ -48,10 +43,9 @@
       "automation": {
         "policies": [
           {
-            "subjects": ["*.rubeen"],
+            "subjects": ["*.rubeen", "rubeen"],
             "issuers": [{
-              "module": "internal",
-              "ca": "Rubeen"
+              "module": "internal"
             }],
             "key_type": "ed25519",
             "on_demand": true
