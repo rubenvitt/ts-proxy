@@ -15,16 +15,22 @@
               "match": [
                 {
                   "host": ["portainer.rubeen"]
-                }
+                },
               ],
               "handle": [
                 {
                   "handler": "reverse_proxy",
                   "upstreams": [
                     {
-                      "dial": "vserver.possum-sun.ts.net:9443"
+                      "dial": "172.17.0.1:9443"
                     }
-                  ]
+                  ],
+                  "transport": {
+                    "protocol": "http",
+                    "tls": {
+                      "insecure_skip_verify": true
+                    }
+                  }
                 }
               ]
             },
