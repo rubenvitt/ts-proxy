@@ -1,0 +1,39 @@
+{
+  "admin": {
+    "disabled": false,
+    "listen": ":4000"
+  },
+  "apps": {
+    "http": {
+      "servers": {
+        "": {
+          "listen": [
+            ":3000"
+          ],
+          "routes": [
+            {
+              "match": [
+                {
+                  "host": "money.rubeen"
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "static_response",
+                  "body": "Hello, world!"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "tls": {
+      "certificates": {
+        "load_folders": [
+          "/etc/caddy/certs"
+        ]
+      }
+    }
+  }
+}
