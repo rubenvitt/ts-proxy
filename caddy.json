@@ -14,7 +14,9 @@
             {
               "match": [
                 {
-                  "host": ["portainer.rubeen"]
+                  "host": [
+                    "portainer.rubeen"
+                  ]
                 }
               ],
               "handle": [
@@ -37,16 +39,42 @@
             {
               "match": [
                 {
-                  "host": ["money.rubeen"]
+                  "host": [
+                    "money.rubeen"
+                  ]
                 }
               ],
               "handle": [
                 {
-                  "handler": "static_response",
-                  "body": "money works"
+                  "handler": "reverse_proxy",
+                  "upstreams": [
+                    {
+                      "dial": "172.17.0.1:10001"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "import.money.rubeen"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "reverse_proxy",
+                  "upstreams": [
+                    {
+                      "dial": "172.17.0.1:10002"
+                    }
+                  ]
                 }
               ]
             }
+
           ]
         }
       }
@@ -71,11 +99,16 @@
       "automation": {
         "policies": [
           {
-            "subjects": ["*.rubeen", "rubeen"],
-            "issuers": [{
-              "module": "internal",
-              "ca": "Rubeen"
-            }],
+            "subjects": [
+              "*.rubeen",
+              "rubeen"
+            ],
+            "issuers": [
+              {
+                "module": "internal",
+                "ca": "Rubeen"
+              }
+            ],
             "on_demand": true
           }
         ]
