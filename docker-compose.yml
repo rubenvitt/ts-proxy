@@ -17,8 +17,8 @@ services:
     image: jpillora/dnsmasq
     platform: linux/amd64
     ports:
-      - "9053:53/tcp"
-      - "9053:53/udp"
+      - "53:53/tcp"
+      - "53:53/udp"
     volumes:
       - ./dnsmasq.conf:/etc/dnsmasq.conf
     cap_add:
