@@ -14,13 +14,29 @@
             {
               "match": [
                 {
+                  "host": ["portainer.rubeen"]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": ""
+                }
+              ]
+            },
+            {
+              "match": [
+                {
                   "host": ["money.rubeen"]
                 }
               ],
               "handle": [
                 {
-                  "handler": "static_response",
-                  "body": "Hello, world!"
+                  "handler": "reverse_proxy",
+                  "upstreams": [
+                    {
+                      "dial": "172.17.0.1:9443"
+                    }
+                  ]
                 }
               ]
             }
