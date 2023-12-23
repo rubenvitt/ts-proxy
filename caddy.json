@@ -19,7 +19,8 @@
               ],
               "handle": [
                 {
-                  "handler": ""
+                  "handler": "static_response",
+                  "body": "portainer works"
                 }
               ]
             },
@@ -31,12 +32,8 @@
               ],
               "handle": [
                 {
-                  "handler": "reverse_proxy",
-                  "upstreams": [
-                    {
-                      "dial": "172.17.0.1:8000"
-                    }
-                  ]
+                  "handler": "static_response",
+                  "body": "money works"
                 }
               ]
             }
