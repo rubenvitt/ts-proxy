@@ -22,7 +22,7 @@
                   "handler": "reverse_proxy",
                   "upstreams": [
                     {
-                      "dial": "verver.possum-sun.ts.net:9443"
+                      "dial": "vserver.possum-sun.ts.net:9443"
                     }
                   ]
                 }
