@@ -7,6 +7,8 @@
     "http": {
       "servers": {
         "": {
+          "tls_connection_policies": [{
+          }],
           "listen": [
             ":3000"
           ],
@@ -15,16 +17,16 @@
               "match": [
                 {
                   "host": ["portainer.rubeen"]
-                }
+                },
               ],
               "handle": [
                 {
                   "handler": "reverse_proxy",
                   "upstreams": [
                     {
-                      "dial": "172.17.0.1:9443"
+                      "dial": "verver.possum-sun.ts.net:9443"
                     }
-                  ]
+                  ],
                 }
               ]
             },
