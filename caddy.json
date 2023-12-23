@@ -30,7 +30,7 @@
     },
     "pki": {
       "certificate_authorities": {
-        "": {
+        "Rubeen": {
           "name": "Rubeen Auth",
           "root_common_name": "Rubeen (root)",
           "intermediate_common_name": "Rubeen (intermediate)",
@@ -50,7 +50,8 @@
           {
             "subjects": [""],
             "issuers": [{
-              "module": "internal"
+              "module": "internal",
+              "ca": "Rubeen"
             }],
             "key_type": "ed25519",
             "on_demand": true
