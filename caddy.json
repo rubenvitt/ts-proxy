@@ -73,8 +73,26 @@
                   ]
                 }
               ]
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "home.rubeen"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "reverse_proxy",
+                  "upstreams": [
+                    {
+                      "dial": "172.17.0.1:10003"
+                    }
+                  ]
+                }
+              ]
             }
-
           ]
         }
       }
